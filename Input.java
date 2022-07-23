@@ -1,0 +1,5 @@
+interface Input {
+    
+    String input();
+    
+}

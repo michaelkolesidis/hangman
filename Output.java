@@ -1,5 +1,0 @@
-interface Output {
-    
-    void print();
-
-}

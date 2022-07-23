@@ -3,8 +3,8 @@ import java.util.ArrayList;
 class Hangman {
 
     public static void main(String[] args) {
-        System.out.println("HANGMAN");
-        System.out.println("=======");
+        // System.out.println("HANGMAN");
+        // System.out.println("=======");
 
 
         WordParser wordparser = new WordParser("./wordlist.txt");
@@ -18,10 +18,13 @@ class Hangman {
 
         System.out.println(word);
 
-        Round round = new Round(word);
 
-        System.out.println(round.createHiddenWord());
+        // Round round = new Round(word);
+        // System.out.println(round.createHiddenWord());
 
-    }
+        Game game = new Game(word);
+
+        game.round();
+    }   
 
 }
