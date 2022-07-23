@@ -3,7 +3,9 @@ import java.util.ArrayList;
 class Hangman {
 
     public static void main(String[] args) {
-        System.out.println("Hangman");
+        System.out.println("HANGMAN");
+        System.out.println("=======");
+
 
         WordParser wordparser = new WordParser("./wordlist.txt");
 
@@ -11,12 +13,15 @@ class Hangman {
         wordparser.createScanner();
         ArrayList<String> words = wordparser.parse();
 
-        System.out.println(words.size());
-
         WordPicker wordPicker = new WordPicker(words);
         String word = wordPicker.pick();
 
         System.out.println(word);
+
+        Round round = new Round(word);
+
+        System.out.println(round.createHiddenWord());
+
     }
 
 }

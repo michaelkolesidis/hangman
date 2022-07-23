@@ -33,11 +33,19 @@ public class WordParser implements Parser {
         while (scanner.hasNextLine()) {
             String word = scanner.nextLine();
             if (word.length() >= 4) {
-                words.add(word);
+                boolean hasApostrophe = false;
+                for (int i = 0; i < word.length(); i++) {
+                    if (word.charAt(i) == '\'') {
+                        hasApostrophe = true;
+                    }
+                }
+
+                if (hasApostrophe == false) {
+                    words.add(word);
+                }
             }
         }
-
-        return(words);
+        return (words);
     }
 
 }
