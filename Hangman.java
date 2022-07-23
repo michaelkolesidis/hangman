@@ -12,7 +12,11 @@ class Hangman {
         ArrayList<String> words = wordparser.parse();
 
         System.out.println(words.size());
-        
+
+        WordPicker wordPicker = new WordPicker(words);
+        String word = wordPicker.pick();
+
+        System.out.println(word);
     }
 
 }

@@ -1,0 +1,5 @@
+interface Picker {
+    
+    String pick();
+
+}
