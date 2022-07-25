@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class Game {
 
+    Printer printer = new Printer();
+
     String word;
     int wordLength;
     int lettersToFind;
@@ -15,8 +17,7 @@ public class Game {
 
     Game(String word_) {
         word = word_;
-        wordLength = word.length();
-        lettersToFind = wordLength - 2;
+        lettersToFind = word.length();
         lettersRemaining = lettersToFind;
 
         letters = new String[lettersToFind];
@@ -29,7 +30,7 @@ public class Game {
 
     private void createLettersArray() {
         for (int i = 0; i < letters.length; i++) {
-            letters[i] = Character.toString(word.charAt(i + 1));
+            letters[i] = Character.toString(word.charAt(i));
         }
     }
 
@@ -85,12 +86,12 @@ public class Game {
         createLettersArray();
 
         System.out.println("Letters to Find: " + lettersRemaining);
-        System.out.println("Lives remaining: " + lives);
+        System.out.print(System.getProperty("line.separator"));
+        printer.printHanging(lives);
+        // System.out.println("Lives remaining: " + lives);
 
 
         while (lives > 0) {
-            System.out.print(System.getProperty("line.separator"));
-            System.out.println("***");
             System.out.println("Enter letter:");
 
             LetterInput letterInput = new LetterInput();
@@ -104,8 +105,8 @@ public class Game {
             // }
 
             boolean result = checkLetter(letter, letters);
-            System.out.println("Is " + letter + " present in word? --> " + result);
-
+            
+            printer.printIsLetterPresent(letter, result);
 
             if (result == true) {
                 int timesFound = checkTimesFound(letter, letters);
@@ -129,7 +130,9 @@ public class Game {
             }
 
             System.out.println("Letters remaining: " + lettersRemaining);
-            System.out.println("Lives remaining: " + lives);
+            System.out.print(System.getProperty("line.separator"));
+            printer.printHanging(lives);
+            // System.out.println("Lives remaining: " + lives);
         }
 
         System.out.println("You lose!");
