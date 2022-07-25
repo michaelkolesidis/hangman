@@ -89,7 +89,7 @@ public class Game {
         letters.add(letter);
     }
 
-    void playing() {
+    boolean playing() {
         createLettersArray();
         printer.printWord(foundLetters, word);
 
@@ -142,7 +142,7 @@ public class Game {
                 printer.printHappyMan();
                 printer.printWord(foundLetters, word);
                 printer.printInput("You win!");
-                return;
+                return true;
             }
 
             printer.printInput("Letters remaining: " + lettersRemaining);
@@ -156,6 +156,7 @@ public class Game {
         printer.printLose();
         printer.printFullWord(word);
 
+        return false;
     }
 
 }

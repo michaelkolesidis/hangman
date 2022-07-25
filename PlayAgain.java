@@ -9,13 +9,9 @@ class PlayAgain {
 
         if (letter.equals("y")) {
             return true;
-        } else if (letter.equals("n")) {
-            return false;
         } else {
-            wannaPlay();
+            return false;
         }
-
-        return false;
     }
 
 }
