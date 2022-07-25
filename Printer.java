@@ -13,7 +13,7 @@ class Printer {
                 ">> Running on " + System.getProperty("os.name") + " <<" + System.getProperty("line.separator"));
     }
 
-    // Prints an empty line in an OS-independent manner 
+    // Prints an empty line in an OS-independent manner
     void emptyLine() {
         System.out.print(System.getProperty("line.separator"));
     }

@@ -1,6 +1,6 @@
 class PlayAgain {
 
-    boolean wannaPlay() {
+    static boolean wannaPlay() {
 
         System.out.println("Do you want to play again? (y/n)");
 

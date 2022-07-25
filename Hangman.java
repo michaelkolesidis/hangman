@@ -20,18 +20,13 @@ class Hangman {
 
         printer.emptyLine();
 
-        Game game = new Game(word);
-        game.playing();
+        do {
+            Game game = new Game(word);
+            game.playing();
 
-        // PlayAgain playAgain = new PlayAgain();
+        } while (PlayAgain.wannaPlay() == true);
 
-        // do {
-        // Game game = new Game(word);
-        // game.playing();
-
-        // } while (playAgain.wannaPlay() == true);
-
-        // printer.printInput("Thanks for playing!");
+        printer.printInput("Thanks for playing!");
     }
 
 }
