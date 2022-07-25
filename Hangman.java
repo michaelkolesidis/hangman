@@ -12,10 +12,7 @@ class Hangman {
         wordparser.createScanner();
         ArrayList<String> words = wordparser.parse();
 
-        // WordPicker wordPicker = new WordPicker(words);
-        // String word = wordPicker.pick();
-
-        // Print word only for testing
+        // Print word for testing
         // System.out.println(word);
 
         printer.emptyLine();
@@ -30,14 +27,14 @@ class Hangman {
 
             if (game.playing() == true) {
                 winningStreak += 1;
-                printer.printInput("Winning streak: " + winningStreak);
+                printer.print("Winning streak: " + winningStreak);
             } else {
                 winningStreak = 0;
             }
 
         } while (PlayAgain.wannaPlay() == true);
 
-        printer.printInput("Thanks for playing!");
+        printer.print("Thanks for playing!");
     }
 
 }

@@ -19,7 +19,7 @@ class Printer {
     }
 
     // Generic fucntion to print input entered as parameter
-    void printInput(String input) {
+    void print(String input) {
         System.out.println(input);
     }
 
@@ -68,11 +68,6 @@ class Printer {
         }
 
         System.out.println("");
-    }
-
-    // Print you lose
-    void printLose() {
-        System.out.println("You lose!");
     }
 
     // Print the whole word

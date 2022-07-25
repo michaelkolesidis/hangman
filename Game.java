@@ -93,26 +93,26 @@ public class Game {
         createLettersArray();
         printer.printWord(foundLetters, word);
 
-        printer.printInput("Letters to Find: " + lettersRemaining);
+        printer.print("Letters to Find: " + lettersRemaining);
         printer.emptyLine();
         printer.printHanging(lives);
 
         while (lives > 0) {
             
-            printer.printInput("Enter letter:");
+            printer.print("Enter letter:");
 
             LetterInput letterInput = new LetterInput();
             String letter = letterInput.input().toLowerCase();
 
             // Check if input is letter
             if (checkIfLetter(letter) == false) {
-                printer.printInput("This was not a letter!");
+                printer.print("This was not a letter!");
                 continue;
             }
 
             // Check if letter has been entered before
             if (checkIfEntered(letter, enteredLetters) == true) {
-                printer.printInput("You have already entered " + letter + "!");
+                printer.print("You have already entered " + letter + "!");
                 continue;
             }
 
@@ -141,11 +141,11 @@ public class Game {
             if (lettersRemaining == 0 && lives > 0) {
                 printer.printHappyMan();
                 printer.printWord(foundLetters, word);
-                printer.printInput("You win!");
+                printer.print("You win!");
                 return true;
             }
 
-            printer.printInput("Letters remaining: " + lettersRemaining);
+            printer.print("Letters remaining: " + lettersRemaining);
             printer.emptyLine();
             printer.printHanging(lives);
             printer.printWord(foundLetters, word);
@@ -153,7 +153,7 @@ public class Game {
 
         }
 
-        printer.printLose();
+        printer.print("You lose!");
         printer.printFullWord(word);
 
         return false;
