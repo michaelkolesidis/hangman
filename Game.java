@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class Game {
 
-    static String word;
+    String word;
     int wordLength;
     int lettersToFind;
     int lettersRemaining;
+
+    String[] letters;
     ArrayList<String> foundLetters;
     ArrayList<String> wrongLetters;
-
-    LetterInput letterInput;
 
     int lives;
 
@@ -19,58 +19,117 @@ public class Game {
         lettersToFind = wordLength - 2;
         lettersRemaining = lettersToFind;
 
+        letters = new String[lettersToFind];
+
         foundLetters = new ArrayList<String>();
         wrongLetters = new ArrayList<String>();
-
-        letterInput = new LetterInput();
 
         lives = 6;
     }
 
-    private boolean play(String letter) {
+    private void createLettersArray() {
+        for (int i = 0; i < letters.length; i++) {
+            letters[i] = Character.toString(word.charAt(i + 1));
+        }
+    }
 
-        System.out.println("Letters to Find:" + lettersToFind);
+    // Checks if letter input is present in word
+    private boolean checkLetter(String letter, String[] letters) {
         boolean found = false;
 
-        for (int i = 0; i < lettersToFind; i++) {
-            if (letter == Character.toString(word.charAt(i))) {
-                // Check if letter already existis in list
-                foundLetters.add(letter);
-                lettersRemaining -= 1;
+        for (String let : letters) {
+            if (let.equals(letter)) {
                 found = true;
-
-                System.out.println("Found Letters:");
-                for (int j = 0; j < foundLetters.size(); j++) {
-                    System.out.println(foundLetters.get(j));
-                }
-            } else {
-                wrongLetters.add(letter);
-
-                System.out.println("Wrong Letters:");
-
-                for (int j = 0; j < wrongLetters.size(); j++) {
-                    System.out.println(wrongLetters.get(i));
-                }
+                break;
             }
-
         }
+
         return found;
+
     }
 
-    void round() {
-        while (lives > 0) {
+    private int checkTimesFound(String letter, String[] letters) {
+        int times = 0;
+        for (String let : letters) {
+            if (let.equals(letter)) {
+                times += 1;
+            }
+        }
 
+        return times;
+    }
+
+    // Adds letter to array
+    private void addLetter(String letter, ArrayList<String> letters) {
+        letters.add(letter);
+    }
+
+    private void printLetters(ArrayList<String> foundLetters, ArrayList<String> wrongLetters) {
+
+        System.out.print(System.getProperty("line.separator"));
+
+        System.out.print("Found Letters: ");
+
+        for (String let : foundLetters) {
+            System.out.print(let + " ");
+        }
+
+        System.out.println("");
+
+        System.out.print("Wrong Letters: ");
+        for (String let : wrongLetters) {
+            System.out.print(let + " ");
+        }
+
+        System.out.println(System.getProperty("line.separator"));
+    }
+
+    void playing() {
+        createLettersArray();
+
+        System.out.println("Letters to Find:" + lettersRemaining);
+
+        while (lives > 0) {
+            LetterInput letterInput = new LetterInput();
             String letter = letterInput.input();
 
-            if (play(letter) == false) {
-                lives -= 1;
-                System.out.println("Lives:" + lives);
-            } else {
-                System.out.println("Lives:" + lives);
-            }
-        }
-    }
+            System.out.println("Letter is : " + letter);
 
-    // str.substring(0, 1)
+            // System.out.println("Letters are : ");
+            // for (int i = 0; i < letters.length; i++) {
+            // System.out.println(letters[i]);
+            // }
+
+            boolean result = checkLetter(letter, letters);
+
+            if (result == true) {
+                int timesFound = checkTimesFound(letter, letters);
+                lettersRemaining -= timesFound;
+                addLetter(letter, foundLetters);
+
+                printLetters(foundLetters, wrongLetters);
+            }
+
+            if (result == false) {
+                lives -= 1;
+                addLetter(letter, wrongLetters);
+
+                printLetters(foundLetters, wrongLetters);
+            }
+
+            // Winning condition
+            if (lettersRemaining == 0 && lives > 0) {
+                System.out.println("You win!");
+                return;
+            }
+
+            System.out.println("Is " + letter + " present in word? --> " + result);
+            System.out.println("Letters remaining:" + lettersRemaining);
+            System.out.println("Lives remaining: " + lives);
+        }
+
+        System.out.println("You lose!");
+
+    }
 
 }

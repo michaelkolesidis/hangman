@@ -4,8 +4,12 @@ class Hangman {
 
     public static void main(String[] args) {
         // System.out.println("HANGMAN");
-        // System.out.println("=======");
-
+        // System.out.println("-------");
+        //  final String ANSI_BLUE = "\u001B[34m";
+        // final String ANSI_WHITE = "\u001B[37m";
+        // System.out.println(ANSI_BLUE + "Hangman!" + ANSI_WHITE);
+        // System.out.println("-------");
+        // System.out.println(System.getProperty("os.name"));
 
         WordParser wordparser = new WordParser("./wordlist.txt");
 
@@ -19,12 +23,12 @@ class Hangman {
         System.out.println(word);
 
 
-        // Round round = new Round(word);
-        // System.out.println(round.createHiddenWord());
-
         Game game = new Game(word);
+        game.playing();
 
-        game.round();
+
+
+
     }   
 
 }
