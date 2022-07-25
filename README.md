@@ -18,13 +18,7 @@
 
 ## Description
 
-<p></p>
-
-
-
-## Screenshots
-
-<img src="">
+<p>The popular game of hangman, created with Java, demonstrating the object-oriented programming paradigm. Pull requests are welcome!</p>
 
 
 
