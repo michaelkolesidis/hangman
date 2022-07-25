@@ -16,8 +16,9 @@ class Hangman {
         String word = wordPicker.pick();
 
         // Print word only for testing
-        System.out.println(word);
+        // System.out.println(word);
 
+        printer.emptyLine();
 
         Game game = new Game(word);
         game.playing();

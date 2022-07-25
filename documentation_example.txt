@@ -1,9 +1,0 @@
-    /**
-     * Checks whether the letter given as input
-     * is part of the word
-     *
-     * @param letter  the letter to be checked
-     * 
-     * @param letters the array of letters
-     * 
-     */

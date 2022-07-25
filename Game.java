@@ -91,38 +91,32 @@ public class Game {
 
     void playing() {
         createLettersArray();
-        printer.printEmptyWord(word);
+        printer.printWord(foundLetters, word);
 
-        System.out.println("Letters to Find: " + lettersRemaining);
-        System.out.print(System.getProperty("line.separator"));
+        printer.printInput("Letters to Find: " + lettersRemaining);
+        printer.emptyLine();
         printer.printHanging(lives);
-        // System.out.println("Lives remaining: " + lives);
 
         while (lives > 0) {
-            System.out.println("Enter letter:");
+            
+            printer.printInput("Enter letter:");
 
             LetterInput letterInput = new LetterInput();
             String letter = letterInput.input().toLowerCase();
 
             // Check if input is letter
             if (checkIfLetter(letter) == false) {
-                System.out.println("This was not a letter!");
+                printer.printInput("This was not a letter!");
                 continue;
             }
 
             // Check if letter has been entered before
             if (checkIfEntered(letter, enteredLetters) == true) {
-                System.out.println("You have already entered " + letter + "!");
+                printer.printInput("You have already entered " + letter + "!");
                 continue;
             }
 
             enteredLetters.add(letter);
-            System.out.println("Letter is : " + letter);
-
-            // System.out.println("Letters are : ");
-            // for (int i = 0; i < letters.length; i++) {
-            // System.out.println(letters[i]);
-            // }
 
             boolean result = checkLetter(letter, letters);
 
@@ -145,14 +139,18 @@ public class Game {
 
             // Winning condition
             if (lettersRemaining == 0 && lives > 0) {
-                System.out.println("You win!");
+                printer.printHappyMan();
+                printer.printWord(foundLetters, word);
+                printer.printInput("You win!");
                 return;
             }
 
-            System.out.println("Letters remaining: " + lettersRemaining);
-            System.out.print(System.getProperty("line.separator"));
+            printer.printInput("Letters remaining: " + lettersRemaining);
+            printer.emptyLine();
             printer.printHanging(lives);
-            // System.out.println("Lives remaining: " + lives);
+            printer.printWord(foundLetters, word);
+            printer.emptyLine();
+
         }
 
         printer.printLose();

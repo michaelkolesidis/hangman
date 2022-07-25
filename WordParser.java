@@ -35,7 +35,7 @@ public class WordParser implements Parser {
             if (word.length() >= 4) {
                 boolean hasApostrophe = false;
                 for (int i = 0; i < word.length(); i++) {
-                    if (word.charAt(i) == '\'' &&  word.charAt(i) == ' ') {
+                    if (word.charAt(i) == '\'' && word.charAt(i) == ' ') {
                         hasApostrophe = true;
                     }
                 }

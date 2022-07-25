@@ -13,23 +13,30 @@ class Printer {
                 ">> Running on " + System.getProperty("os.name") + " <<" + System.getProperty("line.separator"));
     }
 
-    // Print initial blank word
-    void printEmptyWord(String word) {
-        int wordLength = word.length();
-        String wordOutput = "";
+    // Prints an empty line in an OS-independent manner 
+    void emptyLine() {
+        System.out.print(System.getProperty("line.separator"));
+    }
 
-        for (int i = 0; i < wordLength - 1; i++) {
-            wordOutput += "_ ";
-        }
-
-        wordOutput += "_";
-
-        System.out.println(wordOutput);
+    // Generic fucntion to print input entered as parameter
+    void printInput(String input) {
+        System.out.println(input);
     }
 
     // Update word changing blanks with found letters
-    void updateWord() {
+    void printWord(ArrayList<String> foundLetters, String word) {
+        String output = "";
 
+        for (int i = 0; i < word.length(); i++) {
+            if (foundLetters.contains(Character.toString(word.charAt(i)))) {
+                output += Character.toString(word.charAt(i)) + " ";
+            } else {
+                output += "_ ";
+            }
+
+        }
+
+        System.out.println(output);
     }
 
     // Print whether letter is present in word
@@ -71,6 +78,16 @@ class Printer {
     // Print the whole word
     void printFullWord(String word) {
         System.out.println("The word was: " + word);
+    }
+
+    void printHappyMan() {
+        System.out.println("  +---+");
+        System.out.println("  |   |");
+        System.out.println("      |");
+        System.out.println(" \\O/  |");
+        System.out.println("  |   |");
+        System.out.println(" / \\  |");
+        System.out.println("=========");
     }
 
     // Print the ASCII art of the hangman according to lives remaining
