@@ -11,7 +11,7 @@
 
 ## Technologies Used
 
-<a href="https://www.java.com/en/"><img src="https://github.com/michaelkolesidis/tech-icons/blob/main/icons/java-original-wordmark.svg" height="50px" /></a>
+<a href="https://www.java.com/en/"><img src="https://github.com/michaelkolesidis/tech-icons/blob/main/icons/java/java-original-wordmark.svg" height="50px" /></a>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
