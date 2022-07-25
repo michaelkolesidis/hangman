@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./hangman-demo.gif" height="450px">
+  <img src="./hangman-demo.gif">
   <h1>Hangman</h1>
   
   <h3>The popular game, now inside your terminal!</h3>
