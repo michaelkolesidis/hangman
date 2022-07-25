@@ -65,9 +65,6 @@ public class Game {
     }
 
     private void printLetters(ArrayList<String> foundLetters, ArrayList<String> wrongLetters) {
-
-        System.out.print(System.getProperty("line.separator"));
-
         System.out.print("Found Letters: ");
 
         for (String let : foundLetters) {
@@ -81,15 +78,21 @@ public class Game {
             System.out.print(let + " ");
         }
 
-        System.out.println(System.getProperty("line.separator"));
+        System.out.println("");
     }
 
     void playing() {
         createLettersArray();
 
-        System.out.println("Letters to Find:" + lettersRemaining);
+        System.out.println("Letters to Find: " + lettersRemaining);
+        System.out.println("Lives remaining: " + lives);
+
 
         while (lives > 0) {
+            System.out.print(System.getProperty("line.separator"));
+            System.out.println("***");
+            System.out.println("Enter letter:");
+
             LetterInput letterInput = new LetterInput();
             String letter = letterInput.input();
 
@@ -101,6 +104,8 @@ public class Game {
             // }
 
             boolean result = checkLetter(letter, letters);
+            System.out.println("Is " + letter + " present in word? --> " + result);
+
 
             if (result == true) {
                 int timesFound = checkTimesFound(letter, letters);
@@ -123,8 +128,7 @@ public class Game {
                 return;
             }
 
-            System.out.println("Is " + letter + " present in word? --> " + result);
-            System.out.println("Letters remaining:" + lettersRemaining);
+            System.out.println("Letters remaining: " + lettersRemaining);
             System.out.println("Lives remaining: " + lives);
         }
 

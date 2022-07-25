@@ -3,13 +3,14 @@ import java.util.ArrayList;
 class Hangman {
 
     public static void main(String[] args) {
-        // System.out.println("HANGMAN");
-        // System.out.println("-------");
-        //  final String ANSI_BLUE = "\u001B[34m";
-        // final String ANSI_WHITE = "\u001B[37m";
-        // System.out.println(ANSI_BLUE + "Hangman!" + ANSI_WHITE);
-        // System.out.println("-------");
-        // System.out.println(System.getProperty("os.name"));
+
+        // Print game title and OS info
+        System.out.println("----------------------");
+         final String ANSI_BLUE = "\u001B[34m";
+        final String ANSI_WHITE = "\u001B[37m";
+        System.out.println(ANSI_BLUE + "       Hangman!     " + ANSI_WHITE);
+        System.out.println("----------------------");
+        System.out.println(">> Running on " + System.getProperty("os.name") + " <<"+ System.getProperty("line.separator"));
 
         WordParser wordparser = new WordParser("./wordlist.txt");
 
