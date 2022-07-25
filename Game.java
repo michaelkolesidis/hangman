@@ -10,6 +10,7 @@ public class Game {
     int lettersRemaining;
 
     String[] letters;
+    ArrayList<String> enteredLetters;
     ArrayList<String> foundLetters;
     ArrayList<String> wrongLetters;
 
@@ -22,6 +23,7 @@ public class Game {
 
         letters = new String[lettersToFind];
 
+        enteredLetters = new ArrayList<String>();
         foundLetters = new ArrayList<String>();
         wrongLetters = new ArrayList<String>();
 
@@ -32,6 +34,28 @@ public class Game {
         for (int i = 0; i < letters.length; i++) {
             letters[i] = Character.toString(word.charAt(i));
         }
+    }
+
+    // Check if input is letter
+    private boolean checkIfLetter(String letter) {
+        boolean isLetter = false;
+
+        if (letter.matches("[a-zA-Z]+")) {
+            isLetter = true;
+        }
+        return isLetter;
+    }
+
+    // Checks if letter has been entered before
+    private boolean checkIfEntered(String letter, ArrayList<String> enteredLetters) {
+        boolean entered = false;
+        for (String let : enteredLetters) {
+            if (let.equals(letter)) {
+                entered = true;
+                break;
+            }
+        }
+        return entered;
     }
 
     // Checks if letter input is present in word
@@ -60,13 +84,14 @@ public class Game {
         return times;
     }
 
-    // Adds letter to array
+    // Adds letter to arraylist
     private void addLetter(String letter, ArrayList<String> letters) {
         letters.add(letter);
     }
 
     void playing() {
         createLettersArray();
+        printer.printEmptyWord(word);
 
         System.out.println("Letters to Find: " + lettersRemaining);
         System.out.print(System.getProperty("line.separator"));
@@ -77,8 +102,21 @@ public class Game {
             System.out.println("Enter letter:");
 
             LetterInput letterInput = new LetterInput();
-            String letter = letterInput.input();
+            String letter = letterInput.input().toLowerCase();
 
+            // Check if input is letter
+            if (checkIfLetter(letter) == false) {
+                System.out.println("This was not a letter!");
+                continue;
+            }
+
+            // Check if letter has been entered before
+            if (checkIfEntered(letter, enteredLetters) == true) {
+                System.out.println("You have already entered " + letter + "!");
+                continue;
+            }
+
+            enteredLetters.add(letter);
             System.out.println("Letter is : " + letter);
 
             // System.out.println("Letters are : ");
