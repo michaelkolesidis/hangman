@@ -31,7 +31,7 @@ class Hangman {
 
         // } while (playAgain.wannaPlay() == true);
 
-        printer.printInput("Thanks for playing!");
+        // printer.printInput("Thanks for playing!");
     }
 
 }
