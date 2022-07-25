@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 class Printer {
 
     // Print game title and OS info
@@ -11,6 +13,7 @@ class Printer {
                 ">> Running on " + System.getProperty("os.name") + " <<" + System.getProperty("line.separator"));
     }
 
+    // Print initial blank word
     void printEmptyWord(String word) {
         int wordLength = word.length();
         String wordOutput = "";
@@ -24,10 +27,12 @@ class Printer {
         System.out.println(wordOutput);
     }
 
+    // Update word changing blanks with found letters
     void updateWord() {
 
     }
 
+    // Print whether letter is present in word
     void printIsLetterPresent(String letter, boolean result) {
         String yesOrNo = "";
 
@@ -39,6 +44,36 @@ class Printer {
         System.out.println("Is " + letter + " present in word? --> " + yesOrNo);
     }
 
+    // Print the list of the found letters and the list of the wrong letters
+    // submitted
+    void printLetterLists(ArrayList<String> foundLetters, ArrayList<String> wrongLetters) {
+        System.out.print("Found Letters: ");
+
+        for (String let : foundLetters) {
+            System.out.print(let + " ");
+        }
+
+        System.out.println("");
+
+        System.out.print("Wrong Letters: ");
+        for (String let : wrongLetters) {
+            System.out.print(let + " ");
+        }
+
+        System.out.println("");
+    }
+
+    // Print you lose
+    void printLose() {
+        System.out.println("You lose!");
+    }
+
+    // Print the whole word
+    void printFullWord(String word) {
+        System.out.println("The word was: " + word);
+    }
+
+    // Print the ASCII art of the hangman according to lives remaining
     void printHanging(int lives) {
         switch (lives) {
             case 6:

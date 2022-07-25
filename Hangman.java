@@ -18,13 +18,9 @@ class Hangman {
         System.out.println(word);
         printer.printEmptyWord(word);
 
-
         Game game = new Game(word);
         game.playing();
 
-
-
-
-    }   
+    }
 
 }
