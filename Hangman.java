@@ -23,6 +23,15 @@ class Hangman {
         Game game = new Game(word);
         game.playing();
 
+        // PlayAgain playAgain = new PlayAgain();
+
+        // do {
+        // Game game = new Game(word);
+        // game.playing();
+
+        // } while (playAgain.wannaPlay() == true);
+
+        printer.printInput("Thanks for playing!");
     }
 
 }
