@@ -22,6 +22,12 @@
 
 
 
+## Acknowledgments
+Word list file take from:
+https://github.com/dwyl/english-words
+
+
+
 ## License
 
 <a href="https://www.gnu.org/licenses/gpl-3.0.html"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg" height="100px" /></a>
