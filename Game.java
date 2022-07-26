@@ -4,10 +4,8 @@ public class Game {
 
     Printer printer = new Printer();
 
-    String word;
-    int wordLength;
-    int lettersToFind;
-    int lettersRemaining;
+    String word; // The word to find
+    int lettersRemaining; 
 
     String[] letters;
     ArrayList<String> enteredLetters;
@@ -18,18 +16,15 @@ public class Game {
 
     Game(String word_) {
         word = word_;
-        lettersToFind = word.length();
-        lettersRemaining = lettersToFind;
-
-        letters = new String[lettersToFind];
-
+        lettersRemaining = word.length(); // Initialized as the total length of the word
+        letters = new String[lettersRemaining]; // Will contain the letters of the word, each letter will be one element
         enteredLetters = new ArrayList<String>();
         foundLetters = new ArrayList<String>();
         wrongLetters = new ArrayList<String>();
-
         lives = 6;
     }
 
+    // Puts each letter of the word into an array
     private void createLettersArray() {
         for (int i = 0; i < letters.length; i++) {
             letters[i] = Character.toString(word.charAt(i));
