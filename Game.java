@@ -5,7 +5,7 @@ public class Game {
     Printer printer = new Printer();
 
     String word; // The word to find
-    int lettersRemaining; 
+    int lettersRemaining;
 
     String[] letters;
     ArrayList<String> enteredLetters;
@@ -68,6 +68,7 @@ public class Game {
 
     }
 
+    // Checks how many times a correct letter appears in the word
     private int checkTimesFound(String letter, String[] letters) {
         int times = 0;
         for (String let : letters) {
@@ -84,6 +85,7 @@ public class Game {
         letters.add(letter);
     }
 
+    // One round
     boolean playing() {
         createLettersArray();
         printer.printWord(foundLetters, word);
@@ -93,7 +95,7 @@ public class Game {
         printer.printHanging(lives);
 
         while (lives > 0) {
-            
+
             printer.print("Enter letter:");
 
             LetterInput letterInput = new LetterInput();
