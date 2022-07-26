@@ -5,7 +5,6 @@ public class LetterInput implements Input {
     public String input() {
         Scanner scanner = new Scanner(System.in);
         String inputString = scanner.nextLine();
-        System.out.println("String was: " + inputString);
         String outputString = " ";
 
         if (inputString.length() > 0) {
