@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class WordPicker implements Picker {
-    ArrayList<String> list = new ArrayList<String>();
-    Random random;
+    private ArrayList<String> list = new ArrayList<String>();
+    private Random random;
 
     WordPicker(ArrayList<String> list_) {
         list = list_;

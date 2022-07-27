@@ -5,10 +5,10 @@ import java.util.ArrayList;
 
 public class WordParser implements Parser {
 
-    String filePath;
-    File file;
-    Scanner scanner;
-    ArrayList<String> words = new ArrayList<String>();
+    private String filePath;
+    private File file;
+    private Scanner scanner;
+    private ArrayList<String> words = new ArrayList<String>();
 
     WordParser(String filePath_) {
         filePath = filePath_;

@@ -2,17 +2,17 @@ import java.util.ArrayList;
 
 public class Game {
 
-    Printer printer = new Printer();
+    private Printer printer = new Printer();
 
-    String word; // The word to find
-    int lettersRemaining;
+    private String word; // The word to find
+    private int lettersRemaining;
 
-    String[] letters;
-    ArrayList<String> enteredLetters;
-    ArrayList<String> foundLetters;
-    ArrayList<String> wrongLetters;
+    private String[] letters;
+    private ArrayList<String> enteredLetters;
+    private ArrayList<String> foundLetters;
+    private ArrayList<String> wrongLetters;
 
-    int lives;
+    private int lives;
 
     Game(String word_) {
         word = word_;
