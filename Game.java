@@ -86,12 +86,12 @@ public class Game {
     }
 
     // One round
-    boolean playing() {
+    boolean play() {
         createLettersArray();
         printer.printWord(foundLetters, word);
 
         printer.print("Letters to Find: " + lettersRemaining);
-        printer.emptyLine();
+        printer.printEmptyLine();
         printer.printHanging(lives);
 
         while (lives > 0) {
@@ -143,10 +143,10 @@ public class Game {
             }
 
             printer.print("Letters remaining: " + lettersRemaining);
-            printer.emptyLine();
+            printer.printEmptyLine();
             printer.printHanging(lives);
             printer.printWord(foundLetters, word);
-            printer.emptyLine();
+            printer.printEmptyLine();
 
         }
 

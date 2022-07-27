@@ -14,7 +14,7 @@ class Printer {
     }
 
     // Prints an empty line in an OS-independent manner
-    void emptyLine() {
+    void printEmptyLine() {
         System.out.print(System.getProperty("line.separator"));
     }
 

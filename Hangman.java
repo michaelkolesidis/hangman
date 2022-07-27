@@ -15,7 +15,7 @@ class Hangman {
         // Print word for testing
         // System.out.println(word);
 
-        printer.emptyLine();
+        printer.printEmptyLine();
 
         int winningStreak = 0;
 
@@ -25,7 +25,7 @@ class Hangman {
             String word = wordPicker.pick();
             Game game = new Game(word);
 
-            if (game.playing() == true) {
+            if (game.play() == true) {
                 winningStreak += 1;
                 printer.print("Winning streak: " + winningStreak);
             } else {
